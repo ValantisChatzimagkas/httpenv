@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: setup QEMU
+        uses: docker/setup-qemu-action@v2
 
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -31,3 +33,4 @@ jobs:
         with:
           push: ${{ github.event_name != 'pull_request' }} # will not push it until merged
           tags: valantis/allhands22:latest,valantis/allhands22:01
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
