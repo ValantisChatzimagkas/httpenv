@@ -5,7 +5,6 @@ Tiny HTTP server showing the environment variables on TCP 8888.
 [![Lint Code Base](https://github.com/BretFisher/httpenv/actions/workflows/call-super-linter.yaml/badge.svg)](https://github.com/BretFisher/httpenv/actions/workflows/call-super-linter.yaml)
 [![Docker Build](https://github.com/BretFisher/httpenv/actions/workflows/call-docker-build.yaml/badge.svg)](https://github.com/BretFisher/httpenv/actions/workflows/call-docker-build.yaml)
 
-
 Images for `linux/x86_64` (amd64), `linux/arm64` (v8), and `linux/arm/v7`
 
 This can be used for various container learnings like how DNS round-robin works, rolling updates, etc.
