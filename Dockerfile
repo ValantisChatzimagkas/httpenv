@@ -1,8 +1,8 @@
-FROM golang:1.25
+FROM golang:alpine:latest
 COPY httpenv.go /go
 RUN go build httpenv.go
 
-FROM alpine:3.14
+FROM alpine:latest
 RUN addgroup -g 1000 httpenv \
     && adduser -u 1000 -G httpenv -D httpenv
 COPY --from=0 --chown=httpenv:httpenv /go/httpenv /httpenv
