@@ -1,6 +1,9 @@
 ---
 name: Basic Docker Build
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
