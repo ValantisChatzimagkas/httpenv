@@ -43,7 +43,7 @@ jobs:
           tags: ${{github.run_id}}
           target: test
           cache-from: type=gha
-          cache-to: type=gha,mode=maxS
+          cache-to: type=gha,mode=max
           platforms: linux/amd64
 
       - name: Test healthcheck in Docker compose
