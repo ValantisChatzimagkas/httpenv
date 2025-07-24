@@ -35,6 +35,22 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Build and export to Docker
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          load: true
+          tags: ${{github.run_id}}
+          target: test
+          cache-from: type=gha
+          cache-to: type=gha,mode=maxS
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+
+      - name: Test healthcheck in Docker compose
+        run: |
+          export TESTING_IMAGE=${{github.run_id}}
+          docker compose -f docker-compose.test.yaml up --build --exit-code-from sut
+
       - name: Docker meta
         id: docker_meta
         uses: docker/metadata-action@v5
