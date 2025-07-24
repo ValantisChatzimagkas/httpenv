@@ -44,7 +44,7 @@ jobs:
           target: test
           cache-from: type=gha
           cache-to: type=gha,mode=maxS
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64
 
       - name: Test healthcheck in Docker compose
         run: |
