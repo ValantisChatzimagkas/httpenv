@@ -28,11 +28,6 @@ RUN ./httpenv & \
     echo "Application smoke test passed" && \
     pkill httpenv
 
-# Production stage
-FROM alpine:3.22 AS production
-RUN addgroup -g 1000 httpenv \
-    && adduser -u 1000 -G httpenv -D httpenv
-
 # Install wget for healthcheck
 RUN apk add --no-cache wget
 
